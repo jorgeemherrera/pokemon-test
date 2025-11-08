@@ -1,7 +1,9 @@
 import { PokemonType } from '@components/PokemonType';
-import './Home.scss';
 import { PokemonCard } from '@components/PokemonCard';
 import { PokemonList } from '@components/PokemonList';
+import { PokemonFilter } from '@components/PokemonFilter';
+import sortIcon from '@assets/sort.svg';
+import './Home.scss';
 
 const mockPokemonList = {
   count: 1025,
@@ -115,6 +117,8 @@ export const Home = () => {
   return (
     <div className='home'>
       <PokemonType type="bug" />
+      <PokemonFilter typeFilter="input" />
+      <PokemonFilter typeFilter="button" icon={sortIcon} />
       <PokemonCard id={1} image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" name="Bulbasaur" />
       <PokemonList {...mockPokemonList} />
     </div>

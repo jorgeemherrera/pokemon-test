@@ -26,6 +26,7 @@
     "baseUrl": "./src",
     "paths": {
       "@pages/*": ["pages/*"],
+      "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
       "@interfaces/*": ["interfaces/index.ts/*"]
     }
