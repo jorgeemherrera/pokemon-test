@@ -17,6 +17,8 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
       "@pages": path.resolve(__dirname, "src/pages"),
+      "@components": path.resolve(__dirname, "src/components"),
+      "@interfaces": path.resolve(__dirname, "src/interfaces/index.ts"),
       "@styles": path.resolve(__dirname, "src/styles"),
     },
   },

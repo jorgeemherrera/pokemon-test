@@ -1,9 +1,10 @@
+import { PokemonType } from '@components/PokemonType';
 import './Home.scss';
 
 export const Home = () => {
   return (
     <div className='home'>
-      Home Page
+      <PokemonType type="bug" />
     </div>
   )
 }

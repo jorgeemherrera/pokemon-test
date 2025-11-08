@@ -6,7 +6,9 @@
   ],
   "compilerOptions": {
     "paths": {
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["pages/*"],
+      "@components/*": ["components/*"],
+      "@interfaces/*": ["interfaces/index.ts/*"]
     }
   }
 }

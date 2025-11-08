@@ -25,7 +25,9 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": "./src",
     "paths": {
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["pages/*"],
+      "@components/*": ["components/*"],
+      "@interfaces/*": ["interfaces/index.ts/*"]
     }
   },
   "include": ["src"]
