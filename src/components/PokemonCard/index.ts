@@ -1,2 +1,1 @@
-export * from "./PokemonType";
 export * from "./PokemonCard";
