@@ -1,0 +1,48 @@
+// Small Drop Shadow
+$small-drop-shadow-1: 0px 1px 1px 0px rgba(9, 30, 66, 0.25);
+$small-drop-shadow-2: 0px 0px 1px 0px rgba(9, 30, 66, 0.31);
+$small-drop-shadow: #{$small-drop-shadow-1}, #{$small-drop-shadow-2};
+
+// Apply the drop shadow to an element
+.element-with-small-drop-shadow {
+  box-shadow: $small-drop-shadow;
+}
+
+// Medium Drop Shadow
+$medium-drop-shadow-1: 0px 3px 5px 0px rgba(9, 30, 66, 0.20);
+$medium-drop-shadow-2: 0px 0px 1px 0px rgba(9, 30, 66, 0.31);
+$medium-drop-shadow: #{$medium-drop-shadow-1}, #{$medium-drop-shadow-2};
+
+// Medium Drop Shadow - Dark Mode
+$medium-drop-shadow-3: 0px 3px 5px 0px rgba(255, 255, 255, 0.05);
+$medium-drop-shadow-4: 0px 0px 1px 0px rgba(255, 255, 255, 0.05);
+$medium-drop-shadow-2: #{$medium-drop-shadow-3}, #{$medium-drop-shadow-4};
+
+// Apply the drop shadow to an element
+.element-with-medium-drop-shadow {
+  box-shadow: $medium-drop-shadow;
+}
+
+// Large Drop Shadow
+$large-drop-shadow-1: 0px 8px 12px 0px rgba(9, 30, 66, 0.15);
+$large-drop-shadow-2: 0px 0px 1px 0px rgba(9, 30, 66, 0.31);
+$large-drop-shadow: #{$large-drop-shadow-1}, #{$large-drop-shadow-2};
+
+$large-drop-shadow-3: 0px 8px 12px 0px rgba(255, 255, 255, 0.05);
+$large-drop-shadow-4: 0px 0px 1px 0px rgba(9, 30, 66, 0.05);
+$large-drop-shadow-2: #{$large-drop-shadow-3}, #{$large-drop-shadow-4};
+
+// Apply the drop shadow to an element
+.element-with-large-drop-shadow {
+  box-shadow: $large-drop-shadow;
+}
+
+// XLarge Drop Shadow
+$xlarge-drop-shadow-1: 0px 18px 28px 0px rgba(9, 30, 66, 0.8);
+$xlarge-drop-shadow-2: 0px 0px 1px 0px rgba(9, 30, 66, 0.31);
+$xlarge-drop-shadow: #{$xlarge-drop-shadow-1}, #{$xlarge-drop-shadow-2};
+
+// Apply the drop shadow to an element
+.element-with-xlarge-drop-shadow {
+  box-shadow: $xlarge-drop-shadow;
+}

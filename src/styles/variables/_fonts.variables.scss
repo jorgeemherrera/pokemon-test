@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+$font-family-primary: "Poppins", sans-serif;
+$font-family-secondary: "Poppins", sans-serif;
+$font-family-display: "Poppins", sans-serif;
+
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+$lh-12: 12px;
+$lh-16: 16px;
+$lh-20: 20px;
+$lh-24: 24px;
+$lh-28: 28px;
+$lh-32: 32px;
+
+// Header
+$fs-headline: 24px;
+$fs-subtitle-1: 14px;
+$fs-subtitle-2: 12px;
+$fs-subtitle-3: 10px;
+
+// Body
+$fs-body-1: 14px;
+$fs-body-2: 12px;
+$fs-body-3: 10px;
+$fs-caption: 8px;
+
+.headline {
+    font-family: $font-family-display;
+    font-size: $fs-headline;
+    line-height: 32px;
+    font-weight: $weight-bold;
+}
+
+.subtitle-1 {
+    font-family: $font-family-primary;
+    font-size: $fs-subtitle-1;
+    line-height: 16px;
+    font-weight: $weight-bold;
+}
+
+.subtitle-2 {
+    font-family: $font-family-primary;
+    font-size: $fs-subtitle-2;
+    line-height: 16px;
+    font-weight: $weight-bold;
+}
+
+.subtitle-3 {
+    font-family: $font-family-primary;
+    font-size: $fs-subtitle-3;
+    line-height: 16px;
+    font-weight: $weight-bold;
+}
+
+.body-1 {
+    font-family: $font-family-primary;
+    font-size: $fs-body-1;
+    line-height: 16px;
+    font-weight: $weight-regular;
+}
+
+.body-2 {
+    font-family: $font-family-primary;
+    font-size: $fs-body-2;
+    line-height: 16px;
+    font-weight: $weight-regular;
+}
+
+.body-3 {
+    font-family: $font-family-primary;
+    font-size: $fs-body-3;
+    line-height: 16px;
+    font-weight: $weight-regular;
+}
+
+.caption {
+    font-family: $font-family-primary;
+    font-size: $fs-caption;
+    line-height: 12px;
+    font-weight: $weight-regular;
+}
+
+.text-bold {
+    font-weight: $weight-bold;
+}
+.text-regular {
+    font-weight: $weight-regular;
+}
+.text-medium {
+    font-weight: $weight-medium;
+}
+.text-center {
+    text-align: center;
+}
