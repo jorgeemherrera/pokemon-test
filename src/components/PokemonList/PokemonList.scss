@@ -1,0 +1,7 @@
+@use "/src/styles/utils";
+
+.pokemon-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(pxToRem(200px), 1fr));
+  gap: pxToRem(16px);
+}
