@@ -155,12 +155,11 @@
       width: 0;
     }
 
-    // El círculo visible
     .radiomark {
       width: pxToRem(20px);
       height: pxToRem(20px);
-      border: 2px solid $color-primary; // rojo
-      border-radius: 50%; // ← ¡CÍRCULO!
+      border: 2px solid $color-primary;
+      border-radius: 50%;
       background-color: $color-white;
       flex-shrink: 0;
       position: relative;

@@ -1,1 +1,9 @@
 @use "/src/styles/utils";
+
+.home {
+  background: $color-primary;
+  padding: pxToRem(4px);
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(16px);
+}

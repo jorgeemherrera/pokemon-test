@@ -5,14 +5,22 @@ import Checkbox from "./components/Checkbox";
 import Radio from "./components/Radio";
 import "./PokemonFilter.scss";
 
-export const PokemonFilter = ({ typeFilter, icon }: PokemonFilterProps) => {
+export const PokemonFilter = ({
+  typeFilter,
+  icon,
+  label,
+  onClick,
+  ref,
+}: PokemonFilterProps) => {
   //TODO: send the children a handler to execute fetch.
   return (
     <div className="pokemon-filter">
       {typeFilter === "input" && <Input />}
-      {typeFilter === "button" && <Button icon={icon} />}
+      {typeFilter === "button" && (
+        <Button icon={icon} onClick={onClick} ref={ref} />
+      )}
       {typeFilter === "checkbox" && <Checkbox />}
-      {typeFilter === "radio" && <Radio />}
+      {typeFilter === "radio" && <Radio label={label} onClick={onClick} />}
     </div>
   );
 };
