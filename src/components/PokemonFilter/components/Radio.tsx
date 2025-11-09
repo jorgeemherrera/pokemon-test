@@ -1,16 +1,10 @@
 import type { ButtonProps } from "interfaces";
 
-const Radio = ({ label, onClick }: ButtonProps) => {
-
-  const handleChange = () => {
-    if (onClick) {
-      onClick();
-    }
-  };
+const Radio = ({ label, checked, onChange }: ButtonProps) => {
 
   return (
     <label className="pokemon-filter__radio">
-      <input type="radio" onChange={handleChange} name="radio-button" />
+      <input type="radio" onChange={onChange} name="radio-button" value={label} checked={checked} />
       <span className="radiomark"></span>
       {label}
     </label>

@@ -9,18 +9,23 @@ export const PokemonFilter = ({
   typeFilter,
   icon,
   label,
+  checked,
   onClick,
+  onChange,
   ref,
 }: PokemonFilterProps) => {
-  //TODO: send the children a handler to execute fetch.
   return (
     <div className="pokemon-filter">
-      {typeFilter === "input" && <Input />}
+      {typeFilter === "input" && (
+        <Input onChange={onChange} onClick={onClick} />
+      )}
       {typeFilter === "button" && (
         <Button icon={icon} onClick={onClick} ref={ref} />
       )}
       {typeFilter === "checkbox" && <Checkbox />}
-      {typeFilter === "radio" && <Radio label={label} onClick={onClick} />}
+      {typeFilter === "radio" && (
+        <Radio label={label} onClick={onClick} onChange={onChange} checked={checked} />
+      )}
     </div>
   );
 };
