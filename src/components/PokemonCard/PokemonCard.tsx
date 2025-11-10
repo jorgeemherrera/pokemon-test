@@ -12,6 +12,7 @@ export const PokemonCard = ({ id, image, name }: PokemonCardProps) => {
 
   const handleClick = () => {
     navigate(`/pokemon/${id}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleImageError = () => {

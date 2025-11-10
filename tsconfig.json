@@ -5,7 +5,12 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
     "baseUrl": "./src",
+    "types": ["jest", "node"],
     "paths": {
       "@pages/*": ["pages/*"],
       "@assets/*": ["assets/*"],
