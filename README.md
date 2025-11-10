@@ -17,7 +17,7 @@ Includes authentication, Pokémon listing, sorting, search, and detailed informa
 ## ⚙️ Tech Stack
 | Layer | Technology |
 |--------|-------------|
-| **Frontend** | React + TypeScript + Vite |
+| **Frontend** | React + TypeScript + Vite + Node 22|
 | **Backend** | Node.js + Express |
 | **API Source** | [PokeAPI](https://pokeapi.co/) |
 | **State Management** | React Context API |
