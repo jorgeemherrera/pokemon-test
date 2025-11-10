@@ -151,7 +151,7 @@ const TaskTable: React.FC = () => {
 
   return (
     <div className="task-container">
-      <h2 className="task-title">Gestión de Tareas</h2>
+      <h2 className="task-title">Task Manager</h2>
       <TaskForm
         form={form}
         setForm={setForm}
@@ -164,12 +164,12 @@ const TaskTable: React.FC = () => {
         <table className="task-table">
           <thead>
             <tr>
-              <th>Título</th>
-              <th>Usuario</th>
-              <th>Descripción</th>
-              <th>Estado</th>
-              <th>Fecha límite</th>
-              <th>Acciones</th>
+              <th>Title</th>
+              <th>User</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Date limit</th>
+              <th>Actions</th>
             </tr>
           </thead>
 
@@ -177,7 +177,7 @@ const TaskTable: React.FC = () => {
             {tasks.length === 0 ? (
               <tr>
                 <td colSpan={6} style={{ textAlign: "center" }}>
-                  Sin tareas registradas
+                  No tasks recorded
                 </td>
               </tr>
             ) : (
@@ -206,8 +206,8 @@ const TaskStatusChip: React.FC<TaskStatusChipProps> = ({ status, className = "",
   return (
     <span
       className={`status-chip ${statusClass} ${className}`.trim()}
-      title={title ?? `Estado: ${status}`}
-      aria-label={`estado-${statusClass}`}
+      title={title ?? `Status: ${status}`}
+      aria-label={`status-${statusClass}`}
     >
       {status}
     </span>
@@ -254,48 +254,48 @@ const TaskForm: React.FC<TaskFormProps> = ({
   return (
     <form onSubmit={onSubmit} className="task-form">
       <input
-        placeholder="Título"
-        value={form.titulo}
-        onChange={(e) => setForm({ ...form, titulo: e.target.value })}
+        placeholder="Title"
+        value={form.title}
+        onChange={(e) => setForm({ ...form, title: e.target.value })}
       />
 
       <input
-        placeholder="Usuario asignado"
-        value={form.usuario}
+        placeholder="Assigned user"
+        value={form.username}
         onChange={(e) => setForm({ ...form, usuario: e.target.value })}
       />
 
       <textarea
-        placeholder="Descripción"
-        value={form.descripcion}
-        onChange={(e) => setForm({ ...form, descripcion: e.target.value })}
+        placeholder="Description"
+        value={form.description}
+        onChange={(e) => setForm({ ...form, description: e.target.value })}
         rows={2}
       />
 
       <select
-        value={form.estado}
-        onChange={(e) => setForm({ ...form, estado: e.target.value as TaskStatus })}
+        value={form.status}
+        onChange={(e) => setForm({ ...form, status: e.target.value as TaskStatus })}
       >
-        <option value="pendiente">Pendiente</option>
-        <option value="en progreso">En progreso</option>
-        <option value="completada">Completada</option>
+        <option value="pending">Pending</option>
+        <option value="in progress">In progress</option>
+        <option value="completed">Completed</option>
       </select>
 
       <input
         type="date"
-        value={form.fechaLimite}
-        onChange={(e) => setForm({ ...form, fechaLimite: e.target.value })}
+        value={form.dateLimit}
+        onChange={(e) => setForm({ ...form, dateLimit: e.target.value })}
       />
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <button type="submit">
-        {editing ? "Guardar cambios" : "Agregar tarea"}
+        {editing ? "Save changes" : "Add task"}
       </button>
 
       {editing && (
         <button type="button" className="cancel-btn" onClick={onCancel}>
-          Cancelar
+          Cancel
         </button>
       )}
     </form>
@@ -308,7 +308,7 @@ TaskView component
 const TaskView: React.FC = () => {
   return (
     <div style={{ padding: "24px" }}>
-      <h1>Panel de Tareas</h1>
+      <h1>Task Panel</h1>
 
       <TaskTable />
     </div>
