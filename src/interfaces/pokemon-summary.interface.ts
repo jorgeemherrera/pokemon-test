@@ -19,6 +19,25 @@ export interface PokemonSummaryProps {
   };
 }
 
+export interface StatsProps {
+  stats?: {
+    hp: number;
+    attack: number;
+    defense: number;
+    specialAttack: number;
+    specialDefense: number;
+    speed: number;
+  };
+  pokemonColor: string;
+}
+
+export interface AboutProps {
+  weight: string;
+  height: string;
+  abilities: string[];
+  description: string;
+}
+
 export interface StatsBarProps {
   value: number;
   colorBar: string;

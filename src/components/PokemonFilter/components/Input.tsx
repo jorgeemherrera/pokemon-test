@@ -14,6 +14,7 @@ const Input = ({ onChange, onClick, placeholder, icon, type }: InputProps) => {
   const handleClear = () => {
     setValue("");
     onClick?.();
+    onChange?.({ target: { value: "" } } as React.ChangeEvent<HTMLInputElement>);
   };
 
   return (

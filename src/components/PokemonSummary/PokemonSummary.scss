@@ -46,6 +46,14 @@
       flex-direction: row;
       align-items: center;
       gap: pxToRem(16px);
+
+      span,
+      .stat-value {
+        display: inline-block;
+        width: pxToRem(32px);
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
     }
   }
 
