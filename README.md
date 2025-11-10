@@ -33,11 +33,309 @@ Includes authentication, Pokémon listing, sorting, search, and detailed informa
 ✅ **Responsive UI** following [Figma Design](https://www.figma.com/design/uMAeOKKaXf6yW1lIU72qJr/Pok%C3%A9dex--Community-?m=auto)
 
 ---
-
 ## 🤖 GenAI Task
-Includes a **Task Management Table component** generated using a GenAI tool (Cursor / Copilot):  
-- CRUD operations (title, description, status, due_date)  
-- Documented prompt, validation, and improvements process  
+## Prompt: 
+
+Help me create a table-type component for managing tasks.
+It should implement CRUD locally (without a database), using only internal state.
+Tasks must contain: title, description, status, due date, and assigned user in React TypeScript.
+
+## The component should:
+
+Display tasks in a table.
+Allow adding, editing, and deleting records.
+Validate required fields.
+Handle task statuses (e.g., pending, in progress, completed).
+
+## Deliverables:
+
+Complete component code.
+Forms or inputs as needed.
+Storage using local state only.
+
+## Folder Structure
+src/
+│
+├─ components/
+│   ├─ Task/
+│   │   ├─ TaskTable/
+│   │   │   ├─ TaskTable.tsx
+│   │   │   ├─ TaskTable.css
+│   │   ├─ TaskRow/
+│   │   │   ├─ TaskRow.tsx
+│   │   │   ├─ TaskRow.css
+│   │   ├─ TaskStatusChip/
+│   │   │   ├─ TaskStatusChip.tsx
+│   │   │   ├─ TaskStatusChip.css
+│   │   ├─ TaskForm/
+│   │   │   ├─ TaskForm.tsx
+│   │   │   ├─ TaskForm.css
+│
+├─ types/
+│   ├─ task.ts
+│
+└─ App.tsx
+
+## Code
+Table component
+
+```bash
+
+const TaskTable: React.FC = () => {
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [form, setForm] = useState<Omit<Task, "id">>({
+    title: "",
+    description: "",
+    status: "pending",
+    dateLimit: "",
+    username: "",
+  });
+
+  const [editingId, setEditingId] = useState<number | null>(null);
+  const [error, setError] = useState("");
+
+  const clearForm = () => {
+    setForm({
+      title: "",
+      description: "",
+      status: "pending",
+      dateLimit: "",
+      username: "",
+    });
+    setEditingId(null);
+    setError("");
+  };
+
+  const validateForm = () => {
+    if (!form.title.trim()) return "Title required";
+    if (!form.description.trim()) return "Description required";
+    if (!form.dateLimit) return "Date required";
+    if (!form.username.trim()) return "Username required";
+    return "";
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const validation = validateForm();
+    if (validation) {
+      setError(validation);
+      return;
+    }
+
+    if (editingId !== null) {
+      setTasks((prev) =>
+        prev.map((t) => (t.id === editingId ? { ...t, ...form } : t))
+      );
+    } else {
+      setTasks((prev) => [...prev, { id: Date.now(), ...form }]);
+    }
+
+    clearForm();
+  };
+
+  const handleEdit = (task: Task) => {
+    setForm({
+      title: task.title,
+      description: task.description,
+      status: task.status,
+      dateLimit: task.dateLimit,
+      username: task.username,
+    });
+    setEditingId(task.id);
+  };
+
+  const handleDelete = (id: number) => {
+    setTasks((prev) => prev.filter((t) => t.id !== id));
+  };
+
+  return (
+    <div className="task-container">
+      <h2 className="task-title">Gestión de Tareas</h2>
+      <TaskForm
+        form={form}
+        setForm={setForm}
+        onSubmit={handleSubmit}
+        onCancel={clearForm}
+        editing={editingId !== null}
+        error={error}
+      />
+      <div className="table-container">
+        <table className="task-table">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Usuario</th>
+              <th>Descripción</th>
+              <th>Estado</th>
+              <th>Fecha límite</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {tasks.length === 0 ? (
+              <tr>
+                <td colSpan={6} style={{ textAlign: "center" }}>
+                  Sin tareas registradas
+                </td>
+              </tr>
+            ) : (
+              tasks.map((task) => (
+                <TaskRow
+                  key={task.id}
+                  task={task}
+                  onEdit={handleEdit}
+                  onDelete={handleDelete}
+                />
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+```
+TableStatusChip component
+
+```bash
+const TaskStatusChip: React.FC<TaskStatusChipProps> = ({ status, className = "", title }) => {
+  const statusClass = status.replace(" ", "-");
+
+  return (
+    <span
+      className={`status-chip ${statusClass} ${className}`.trim()}
+      title={title ?? `Estado: ${status}`}
+      aria-label={`estado-${statusClass}`}
+    >
+      {status}
+    </span>
+  );
+};
+```
+
+TaskRow component
+
+```bash
+const TaskRow: React.FC<TaskRowProps> = ({ task, onEdit, onDelete }) => {
+  return (
+    <tr>
+      <td>{task.title}</td>
+      <td>{task.username}</td>
+      <td>{task.description}</td>
+      <td>
+        <TaskStatusChip status={task.status} />
+      </td>
+      <td>{task.dateLimit}</td>
+      <td className="task-actions">
+        <button className="edit" onClick={() => onEdit(task)}>
+          Edit
+        </button>
+        <button className="delete" onClick={() => onDelete(task.id)}>
+          Delete
+        </button>
+      </td>
+    </tr>
+  );
+};
+```
+
+TaskForm component
+```bash
+const TaskForm: React.FC<TaskFormProps> = ({
+  form,
+  setForm,
+  onSubmit,
+  onCancel,
+  editing,
+  error,
+}) => {
+  return (
+    <form onSubmit={onSubmit} className="task-form">
+      <input
+        placeholder="Título"
+        value={form.titulo}
+        onChange={(e) => setForm({ ...form, titulo: e.target.value })}
+      />
+
+      <input
+        placeholder="Usuario asignado"
+        value={form.usuario}
+        onChange={(e) => setForm({ ...form, usuario: e.target.value })}
+      />
+
+      <textarea
+        placeholder="Descripción"
+        value={form.descripcion}
+        onChange={(e) => setForm({ ...form, descripcion: e.target.value })}
+        rows={2}
+      />
+
+      <select
+        value={form.estado}
+        onChange={(e) => setForm({ ...form, estado: e.target.value as TaskStatus })}
+      >
+        <option value="pendiente">Pendiente</option>
+        <option value="en progreso">En progreso</option>
+        <option value="completada">Completada</option>
+      </select>
+
+      <input
+        type="date"
+        value={form.fechaLimite}
+        onChange={(e) => setForm({ ...form, fechaLimite: e.target.value })}
+      />
+
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      <button type="submit">
+        {editing ? "Guardar cambios" : "Agregar tarea"}
+      </button>
+
+      {editing && (
+        <button type="button" className="cancel-btn" onClick={onCancel}>
+          Cancelar
+        </button>
+      )}
+    </form>
+  );
+};
+```
+TaskView component
+
+```bash
+const TaskView: React.FC = () => {
+  return (
+    <div style={{ padding: "24px" }}>
+      <h1>Panel de Tareas</h1>
+
+      <TaskTable />
+    </div>
+  );
+};
+```
+
+## Improvements Implemented in This Project
+
+Throughout the development of this project, I implemented several improvements to keep the code organized, reusable, and easy to maintain.
+
+## Componentization
+
+The logic was split into components such as TaskForm, TaskRow, and TaskStatusChip, improving code clarity and avoiding duplication.
+
+## Custom Styles
+
+Created component-specific CSS files to maintain a consistent and visually appealing interface.
+
+## Centralized Types
+
+Moved the Task, TaskStatus, and related prop types to types/task.ts, ensuring consistency and scalability with TypeScript.
+
+## Folder Organization
+
+Reorganized the project structure to separate components, views, and types, making it easier to scale and maintain.
+
 
 ---
 
