@@ -28,58 +28,62 @@ $fs-body-2: 12px;
 $fs-body-3: 10px;
 $fs-caption: 8px;
 
+@function responsive-font($min, $max) {
+    @return clamp($min, 1.5vw, $max);
+}
+
 .headline {
     font-family: $font-family-display;
-    font-size: $fs-headline;
+    font-size: responsive-font($fs-headline, 48px);
     line-height: 32px;
     font-weight: $weight-bold;
 }
 
 .subtitle-1 {
     font-family: $font-family-primary;
-    font-size: $fs-subtitle-1;
+    font-size: responsive-font($fs-subtitle-1, 20px);
     line-height: 16px;
     font-weight: $weight-bold;
 }
 
 .subtitle-2 {
     font-family: $font-family-primary;
-    font-size: $fs-subtitle-2;
+    font-size: responsive-font($fs-subtitle-2, 18px);
     line-height: 16px;
     font-weight: $weight-bold;
 }
 
 .subtitle-3 {
     font-family: $font-family-primary;
-    font-size: $fs-subtitle-3;
+    font-size: responsive-font($fs-subtitle-3, 16px);
     line-height: 16px;
     font-weight: $weight-bold;
 }
 
 .body-1 {
     font-family: $font-family-primary;
-    font-size: $fs-body-1;
+    font-size: responsive-font($fs-body-1, 18px);
     line-height: 16px;
     font-weight: $weight-regular;
 }
 
 .body-2 {
     font-family: $font-family-primary;
-    font-size: $fs-body-2;
+    font-size: responsive-font($fs-body-2, 16px);
     line-height: 16px;
     font-weight: $weight-regular;
 }
 
 .body-3 {
     font-family: $font-family-primary;
-    font-size: $fs-body-3;
+    font-size: responsive-font($fs-body-3, 14px);
     line-height: 16px;
     font-weight: $weight-regular;
 }
 
 .caption {
     font-family: $font-family-primary;
-    font-size: $fs-caption;
+    font-size: responsive-font($fs-caption, 12px);
     line-height: 12px;
     font-weight: $weight-regular;
 }

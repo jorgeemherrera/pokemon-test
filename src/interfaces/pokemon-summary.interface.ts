@@ -21,10 +21,12 @@ export interface PokemonSummaryProps {
 
 export interface StatsBarProps {
   value: number;
+  colorBar: string;
+  stat: string;
 }
 
 export interface MeasuresProps {
-  weight: string;
-  height: string;
-  moves: string[];
+  value: string | string[];
+  unit: string;
+  icon?: string;
 }

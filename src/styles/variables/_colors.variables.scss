@@ -27,3 +27,58 @@ $color-gray-medium: #666666;
 $color-gray-light: #e0e0e0;
 $color-gray-background: #efefef;
 $color-white: #ffffff;
+
+@mixin type-text($type) {
+  .#{$type}-text {
+    color: map-get($colors, $type);
+  }
+}
+
+$colors: (
+  bug: $color-type-bug,
+  dark: $color-type-dark,
+  dragon: $color-type-dragon,
+  electric: $color-type-electric,
+  fairy: $color-type-fairy,
+  fighting: $color-type-fighting,
+  fire: $color-type-fire,
+  flying: $color-type-flying,
+  ghost: $color-type-ghost,
+  grass: $color-type-grass,
+  ground: $color-type-ground,
+  ice: $color-type-ice,
+  normal: $color-type-normal,
+  poison: $color-type-poison,
+  psychic: $color-type-psychic,
+  rock: $color-type-rock,
+  steel: $color-type-steel,
+  water: $color-type-water
+);
+
+$colors-light: ();
+@each $type, $color in $colors {
+  $colors-light: map-merge($colors-light, (#{$type}-light: lighten($color, 20%)));
+}
+
+@mixin type-style($type) {
+  .#{$type} {
+    background-color: map-get($colors, $type);
+  }
+  .#{$type}-text {
+    color: map-get($colors, $type);
+  }
+}
+
+@mixin type-style-light($type) {
+  .#{$type}-light {
+    background-color: map-get($colors-light, #{$type}-light);
+  }
+  .#{$type}-text-light {
+    color: map-get($colors-light, #{$type}-light);
+  }
+}
+
+@each $type, $color in $colors {
+  @include type-style($type);
+  @include type-style-light($type);
+}

@@ -3,19 +3,30 @@
 .pokemon-summary {
   display: flex;
   flex-direction: column;
-  gap: pxToRem(10px);
+  gap: pxToRem(16px);
   width: 100%;
+  height: pxToRem(500px);
   margin: 0 auto;
   justify-content: center;
+  background-color: $color-white;
+  padding: 0 pxToRem(20px) pxToRem(20px) pxToRem(20px);
+  border-radius: pxToRem(8px);
+  align-items: center;
 
   &__divider {
     width: 2px;
     background-color: $color-gray-light;
-    height: pxToRem(150px);
+    height: 100%;
   }
 
   &__title {
     font-size: clamp(16px, 2vw, 24px);
+    text-align: center;
+  }
+
+  &__types {
+    display: flex;
+    justify-content: center;
   }
 
   &__skills {
@@ -42,38 +53,60 @@
     display: flex;
     gap: pxToRem(16px);
     align-items: center;
+    width: 100%;
+    justify-content: center;
 
     &--bar {
       width: 100%;
-      height: 12px;
+      height: clamp(4px, 0.5vw, 8px);
       border-radius: 9999px;
       background: #ccc;
 
       .bar-value {
         height: 100%;
-        background: #4caf50;
         border-radius: 9999px;
         transition: width 0.3s ease;
       }
     }
   }
 
-  &__about {
-    &--measures {
+  &__measures {
+    display: flex;
+    flex-direction: row;
+    gap: pxToRem(32px);
+    align-items: center;
+    max-width: pxToRem(500px);
+    justify-content: center;
+
+    .measure {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      max-width: pxToRem(500px);
-
-      .measure__icon {
-        display: flex;
-        gap: 8px;
-      }
-
-      .measure__label {
-        color: $color-gray-medium;
-      }
+      flex-direction: column;
+      gap: pxToRem(16px);
     }
+
+    .measure__icon {
+      display: flex;
+      gap: pxToRem(8px);
+    }
+
+    .measure__label {
+      color: $color-gray-medium;
+    }
+  }
+
+  &__description {
+    text-align: center;
+  }
+
+  &__types {
+    display: flex;
+    gap: pxToRem(16px);
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: pxToRem(16px);
   }
 }

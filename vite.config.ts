@@ -19,6 +19,7 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "src/assets"),
       "@pages": path.resolve(__dirname, "src/pages"),
       "@hooks": path.resolve(__dirname, "src/hooks"),
+      "@utils": path.resolve(__dirname, "src/utils"),
       "@context": path.resolve(__dirname, "src/context"),
       "@components": path.resolve(__dirname, "src/components"),
       "@interfaces": path.resolve(__dirname, "src/interfaces/index.ts"),

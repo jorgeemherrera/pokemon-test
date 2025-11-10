@@ -10,6 +10,7 @@
       "@pages/*": ["pages/*"],
       "@assets/*": ["assets/*"],
       "@hooks/*": ["hooks/*"],
+      "@utils/*": ["utils/*"],
       "@context/*": ["context/*"],
       "@components/*": ["components/*"],
       "@interfaces/*": ["interfaces/index.ts/*"]

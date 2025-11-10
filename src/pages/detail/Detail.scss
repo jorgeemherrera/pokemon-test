@@ -1,0 +1,85 @@
+@use "/src/styles/utils";
+
+.detail {
+  position: relative;
+  padding: pxToRem(8px);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 100vh;
+  width: 100%;
+  justify-content: space-between;
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $color-white;
+    height: clamp(pxToRem(300px), 40vh, pxToRem(500px));
+    &-back {
+      width: 100%;
+      height: clamp(pxToRem(300px), 40vh, pxToRem(500px));
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: clamp(50%, 70%, 300px);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      background-image: url("@assets/bg-pokeball.svg");
+
+      .name {
+        display: flex;
+        gap: pxToRem(8px);
+        margin-left: pxToRem(20px);
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .id {
+        margin-top: pxToRem(10px);
+        margin-right: pxToRem(20px);
+      }
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -110%);
+    width: 60%;
+    max-width: pxToRem(300px);
+    height: auto;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    &--arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      padding: pxToRem(8px);
+      cursor: pointer;
+      z-index: 10;
+
+      &.left {
+        left: pxToRem(-50px);
+      }
+
+      &.right {
+        right: pxToRem(-50px);
+      }
+
+      img {
+        width: pxToRem(24px);
+        height: pxToRem(24px);
+      }
+    }
+  }
+}

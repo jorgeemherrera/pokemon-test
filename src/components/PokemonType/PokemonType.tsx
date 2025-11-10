@@ -1,14 +1,12 @@
 import type { PokemonTypeProps } from "interfaces";
+import { capitalizeText } from "@utils/utils";
 import "./PokemonType.scss";
 
 export const PokemonType = ({ type }: PokemonTypeProps) => {
-  const capitalizeType = (str: string) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
 
   return (
     <div className={`pokemon-type ${type} subtitle-3`}>
-      {capitalizeType(type)}
+      {capitalizeText(type)}
     </div>
   );
 };
