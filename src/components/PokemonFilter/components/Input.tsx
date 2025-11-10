@@ -1,9 +1,8 @@
 import { useState } from "react";
-import searchIcon from "@assets/search.svg";
 import closeIcon from "@assets/close.svg";
 import type { InputProps } from "interfaces";
 
-const Input = ({ onChange, onClick }: InputProps) => {
+const Input = ({ onChange, onClick, placeholder, icon, type }: InputProps) => {
   const [value, setValue] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,11 +18,11 @@ const Input = ({ onChange, onClick }: InputProps) => {
 
   return (
     <div className="pokemon-filter__input">
-      <img src={searchIcon} alt="Search Icon" />
+      {icon && <img src={icon} alt="Search Icon" />}
 
       <input
-        type="text"
-        placeholder="Search Pokémon..."
+        type={type ? type : "text"}
+        placeholder={placeholder}
         value={value}
         onChange={handleChange}
       />

@@ -1,8 +1,9 @@
 export interface PokemonFilterProps {
-  typeFilter: "input" | "button" | "checkbox" | "radio";
+  typeFilter: "input" | "button" | "checkbox" | "radio" | "input-password";
   icon?: string;
   label?: string;
   checked?: boolean;
+  placeholder?: string;
   onClick?: () => void;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   ref?: React.RefObject<HTMLButtonElement | null>;
@@ -19,6 +20,9 @@ export interface ButtonProps {
 
 export interface InputProps {
   onClick?: () => void;
+  placeholder?: string;
+  icon?: string;
+  type?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

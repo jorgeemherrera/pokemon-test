@@ -4,3 +4,4 @@ export * from "./PokemonList";
 export * from "./PokemonFilter";
 export * from "./PokemonSummary";
 export * from "./LayoutHeader";
+export * from "./LayoutSpinner";

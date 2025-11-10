@@ -96,6 +96,8 @@
 
   &__description {
     text-align: center;
+    width: 100%;
+    max-width: pxToRem(800px);
   }
 
   &__types {

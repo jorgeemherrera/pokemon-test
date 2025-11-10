@@ -4,7 +4,7 @@
   width: 100%;
   height: pxToRem(500px);
   max-width: pxToRem(200px);
-  max-height: pxToRem(250px);
+  max-height: pxToRem(200px);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -17,6 +17,11 @@
   @include media-xs() {
     max-width: pxToRem(150px);
     height: pxToRem(200px);
+  }
+
+  @include media-gtmd() {
+    max-width: pxToRem(300px);
+    max-height: pxToRem(350px);
   }
 
   &__header {
@@ -50,5 +55,17 @@
     border-top-right-radius: pxToRem(7px);
     background-color: $color-gray-background;
     font-size: pxToRem(20px);
+  }
+
+  &__id {
+    font-family: $font-family-primary;
+    font-size: responsive-font($fs-caption, 16px);
+    font-weight: $weight-regular;
+  }
+
+  &__name {
+    font-family: $font-family-primary;
+    font-size: responsive-font($fs-body-2, 22px);
+    font-weight: $weight-regular;
   }
 }

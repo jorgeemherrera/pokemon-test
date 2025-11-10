@@ -50,7 +50,7 @@ export const Home = () => {
   return (
     <div className="home">
       <LayoutHeader />
-      <PokemonList />
+      <PokemonList loading={isLoading} />
     </div>
   );
 };

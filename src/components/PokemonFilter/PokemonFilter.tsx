@@ -10,6 +10,7 @@ export const PokemonFilter = ({
   icon,
   label,
   checked,
+  placeholder,
   onClick,
   onChange,
   ref,
@@ -17,7 +18,10 @@ export const PokemonFilter = ({
   return (
     <div className="pokemon-filter">
       {typeFilter === "input" && (
-        <Input onChange={onChange} onClick={onClick} />
+        <Input onChange={onChange} onClick={onClick} placeholder={placeholder} icon={icon} />
+      )}
+      {typeFilter === "input-password" && (
+        <Input onChange={onChange} onClick={onClick} placeholder={placeholder} icon={icon} type="password" />
       )}
       {typeFilter === "button" && (
         <Button icon={icon} onClick={onClick} ref={ref} />

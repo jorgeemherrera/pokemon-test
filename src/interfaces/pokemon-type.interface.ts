@@ -17,5 +17,6 @@ export interface PokemonTypeProps {
     | "dragon"
     | "dark"
     | "steel"
-    | "fairy";
+    | "fairy"
+    | "type";
 }

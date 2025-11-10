@@ -2,11 +2,17 @@
 
 .layout-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: pxToRem(20px);
-  padding: pxToRem(12px) pxToRem(12px) pxToRem(24px);
+  padding: pxToRem(12px);
   background: $color-primary;
+  justify-content: space-between;
   color: $color-white;
+
+  @include media-ltmd() {
+    flex-direction: column;
+    padding: pxToRem(12px) pxToRem(12px) pxToRem(24px);
+  }
 
   &__logo {
     display: flex;
@@ -29,8 +35,12 @@
   &__filters {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 30%;
     gap: pxToRem(16px);
+
+    @include media-ltmd() {
+      width: 100%;
+    }
 
     > :first-child {
       flex: 1;

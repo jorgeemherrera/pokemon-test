@@ -56,6 +56,7 @@
       height: 100%;
       object-fit: contain;
       display: block;
+      animation: fadeInSmooth 0.8s ease-out forwards;
     }
 
     &--arrow {
@@ -81,5 +82,14 @@
         height: pxToRem(24px);
       }
     }
+  }
+}
+
+@keyframes fadeInSmooth {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

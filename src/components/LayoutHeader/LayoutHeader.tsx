@@ -3,10 +3,12 @@ import pokeballIcon from "@assets/pokeball.svg";
 import iconSortNumber from "@assets/sortNumber.svg";
 import iconSortName from "@assets/sortName.svg";
 import iconSort from "@assets/sort.svg";
+import iconSearch from "@assets/search.svg";
 import { PokemonFilter } from "@components/PokemonFilter";
 import { usePokemonBySearch } from "@hooks/usePokemons";
 import { useGlobalState } from "@hooks/useGlobalState";
 import type { PokemonSortOption } from "interfaces";
+import { LayoutSpinner } from "@components/LayoutSpinner";
 import "./LayoutHeader.scss";
 
 export const LayoutHeader = () => {
@@ -15,7 +17,7 @@ export const LayoutHeader = () => {
   const [search, setSearch] = useState<string>("");
   const [sort, setSort] = useState<PokemonSortOption>("number");
 
-  const { data } = usePokemonBySearch(search, sort);
+  const { data, isLoading } = usePokemonBySearch(search, sort);
 
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -78,6 +80,8 @@ export const LayoutHeader = () => {
       <div className="layout-header__filters">
         <PokemonFilter
           typeFilter="input"
+          placeholder="Search"
+          icon={iconSearch}
           onChange={handleSearch}
           onClick={handleCleanSearch}
         />
@@ -116,6 +120,11 @@ export const LayoutHeader = () => {
           </div>
         </div>
       </div>
+      {isLoading && (
+        <div className="spinner-overlay">
+          <LayoutSpinner size="medium" color="red" icon="" />
+        </div>
+      )}
     </header>
   );
 };

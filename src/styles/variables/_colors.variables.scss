@@ -1,5 +1,6 @@
 //identity
 $color-primary: #dc0a2d;
+$color-alternative: #3b4cca;
 
 //pokemon types
 $color-type-bug: #a7b723;
@@ -20,6 +21,7 @@ $color-type-psychic: #fb5584;
 $color-type-rock: #b69e31;
 $color-type-steel: #b7b9d0;
 $color-type-water: #6493eb;
+$color-type-type: #a4acaf;
 
 //gray scale
 $color-gray-dark: #212121;
@@ -52,7 +54,8 @@ $colors: (
   psychic: $color-type-psychic,
   rock: $color-type-rock,
   steel: $color-type-steel,
-  water: $color-type-water
+  water: $color-type-water,
+  type: $color-type-type
 );
 
 $colors-light: ();

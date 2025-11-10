@@ -1,6 +1,6 @@
 import type { ButtonProps } from "interfaces";
 
-const Button = ({ icon, onClick, ref }: ButtonProps) => {
+const Button = ({ icon, label, onClick, ref }: ButtonProps) => {
 
   const handleClick = () => {
     if (onClick) {
@@ -11,6 +11,7 @@ const Button = ({ icon, onClick, ref }: ButtonProps) => {
   return (
     <button className="pokemon-filter__button" onClick={handleClick} ref={ref}>
       {icon && <img src={icon} alt="Sort Icon" />}
+      {label && <span>{label}</span>}
     </button>
   );
 };

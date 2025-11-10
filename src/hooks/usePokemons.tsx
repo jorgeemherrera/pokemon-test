@@ -57,7 +57,6 @@ const fetchPokemonBySearch = async (search: string) => {
 
 export const usePokemonBySearch = (search: string, sort?: string) => {
   const debouncedSearch = useDebounce(search, 300);
-  console.log(sort)
   return useQuery({
     queryKey: ["pokemonSearch", debouncedSearch, sort],
     queryFn: async () => {

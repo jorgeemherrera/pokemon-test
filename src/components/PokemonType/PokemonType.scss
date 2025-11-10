@@ -2,11 +2,12 @@
 
 .pokemon-type {
   width: max-content;
-  padding-top: utils.pxToRem(2px);
-  padding-bottom: utils.pxToRem(2px);
-  padding-left: utils.pxToRem(8px);
-  padding-right: utils.pxToRem(8px);
+  padding: utils.pxToRem(2px) utils.pxToRem(8px);
   border-radius: utils.pxToRem(10px);
   color: $color-white;
   font-size: clamp(10px, 2vw, 24px);
+
+  @include media-xl() {
+    padding: utils.pxToRem(4px) utils.pxToRem(10px);
+  }
 }

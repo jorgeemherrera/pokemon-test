@@ -1,0 +1,75 @@
+@use "/src/styles/utils";
+
+.login {
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__form {
+    width: pxToRem(400px);
+    padding: pxToRem(32px);
+    background-color: $color-primary;
+    border-radius: pxToRem(12px);
+    box-shadow: 0 0 pxToRem(24px) rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: pxToRem(16px);
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: pxToRem(24px);
+    font-size: pxToRem(24px);
+    font-weight: 600;
+    display: flex;
+    gap: pxToRem(32px);
+    flex-direction: column;
+    color: $color-white;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__group {
+    margin-bottom: pxToRem(16px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    padding: pxToRem(12px) pxToRem(16px);
+    border: 1px solid #ccc;
+    border-radius: pxToRem(8px);
+    font-size: pxToRem(16px);
+    outline: none;
+
+    &:focus {
+      border-color: #007bff;
+    }
+  }
+
+  &__error {
+    color: $color-white;
+    font-size: pxToRem(12px);
+    margin-top: pxToRem(4px);
+  }
+
+  &__button {
+    padding: pxToRem(12px);
+    border: none;
+    border-radius: pxToRem(8px);
+    background-color: $color-alternative;
+    color: $color-white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
