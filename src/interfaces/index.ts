@@ -4,3 +4,4 @@ export * from "./pokemon-list.interface";
 export * from "./pokemon-filter.interface";
 export * from "./pokemon-context.interface";
 export * from "./use-pokemon.interface";
+export * from "./pokemon-summary.interface";

@@ -25,7 +25,7 @@ export const LayoutHeader = () => {
   const handleSort = (event: React.ChangeEvent<HTMLInputElement>) => {
     const sort = event.target.value.toLowerCase() as PokemonSortOption;
     setSort(sort);
-    setProperty('sortBy', sort);
+    setProperty("sortBy", sort);
     setIsDropdownOpen(false);
   };
 
@@ -41,8 +41,8 @@ export const LayoutHeader = () => {
   };
 
   const handleCleanSearch = () => {
-    setSearch('');
-  }
+    setSearch("");
+  };
 
   const handleClickOutside = (e: MouseEvent) => {
     if (
@@ -57,7 +57,7 @@ export const LayoutHeader = () => {
 
   useEffect(() => {
     setProperty("pokemons", data);
-  }, [data])
+  }, [data]);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -76,7 +76,11 @@ export const LayoutHeader = () => {
       </div>
 
       <div className="layout-header__filters">
-        <PokemonFilter typeFilter="input" onChange={handleSearch} onClick={handleCleanSearch} />
+        <PokemonFilter
+          typeFilter="input"
+          onChange={handleSearch}
+          onClick={handleCleanSearch}
+        />
 
         <div className="layout-header__sort-wrapper">
           <PokemonFilter

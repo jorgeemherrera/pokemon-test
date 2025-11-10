@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useDebounce } from "@uidotdev/usehooks";
-import type { ApiResponse } from "interfaces";
+import type { ApiResponse, ApiResponseDetail } from "interfaces";
 
 const BASE_URL = 'http://localhost:3000/api';
 
@@ -35,7 +35,7 @@ export const usePokemons = ({
 const fetchPokemonById = async (id: number) => {
   const res = await fetch(`${BASE_URL}/pokemons/${id}`);
   if (!res.ok) throw new Error("Error loading data");
-  return res.json() as Promise<any>;
+  return res.json() as Promise<ApiResponseDetail>;
 };
 
 export const usePokemonById = (id: number) => {
